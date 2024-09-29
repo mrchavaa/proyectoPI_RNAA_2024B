@@ -7,22 +7,23 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
-class ClienteController extends Controller implements HasMiddleware
+class ClienteController extends Controller// implements HasMiddleware
 {
-    public static function middleware(): array
-    {
-        return [
-            new Middleware('auth', except: ['index', 'show']),
-        ];
-    }
-
+    
+    // public static function middleware(): array
+    // {
+    //     return [
+    //         new Middleware('auth', except: ['index', 'show']),
+    //     ];
+    // }
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $clientes = Cliente::all();
-        return view('clientes/index-cliente', compact('clientes'));
+        return view('clientes.index-cliente', compact('clientes'));
     }
 
     /**
@@ -30,7 +31,7 @@ class ClienteController extends Controller implements HasMiddleware
      */
     public function create()
     {
-        return view("clientes/create-cliente");
+        return view("clientes.create-cliente");
     }
 
     /**
@@ -43,24 +44,15 @@ class ClienteController extends Controller implements HasMiddleware
             'nombre'  => ['required'],
             'apellido1'  => ['required'],
             'apellido2'  => ['required'],
-            'telefono'  => ['required', 'max:20']
+            'telefono'  => ['required', 'max:20'],
+            'correo' => ['required', 'email']
         ]);
 
-        //CREAR INSTANCIA CLIENTE
-        $cliente = new Cliente();
-
-        /*ASIGNARLE DATOS A LA INSTANCIA CLIENTE
-        A TRAVÉS DEL REQUEST*/
-        $cliente->nombre = $request->nombre;
-        $cliente->apellido1 = $request->apellido1;
-        $cliente->apellido2 = $request->apellido2;
-        $cliente->telefono = $request->telefono;
-
-        //GUARDARLO EN LA BASE DE DATOS
-        $cliente->save();
+        //ASIGNACIÓN MASIVA DE DATOS
+        $cliente = Cliente::create($request->all());
 
         //REDIRECCIONAR AL USUARIO A LA VISTA 'CREAR USUARIO'
-        return redirect('alta-clientes');
+        return redirect()->route('cliente.index');
     }
 
     /**
@@ -68,7 +60,7 @@ class ClienteController extends Controller implements HasMiddleware
      */
     public function show(Cliente $cliente)
     {
-        //
+        return view('clientes.show-cliente', compact('cliente'));
     }
 
     /**
@@ -76,7 +68,7 @@ class ClienteController extends Controller implements HasMiddleware
      */
     public function edit(Cliente $cliente)
     {
-        //
+        return view('clientes.edit-cliente', compact('cliente'));
     }
 
     /**
@@ -84,7 +76,8 @@ class ClienteController extends Controller implements HasMiddleware
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        $cliente->update($request->all());
+        return redirect()->route('cliente.show', $cliente);
     }
 
     /**
@@ -93,7 +86,6 @@ class ClienteController extends Controller implements HasMiddleware
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
-
-        return redirect('/listar-clientes');
+        return redirect()->route('cliente.index');
     }
 }

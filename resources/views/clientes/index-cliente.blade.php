@@ -17,17 +17,25 @@
                 <th>Apellido Paterno</th>
                 <th>Apellido Materno</th>
                 <th>Número de teléfono</th>
+                <th>Correo electrónico</th>
+                <th>Acciones</th>
+
             </tr>
         </thead>
         
         <tbody>
             @foreach($clientes as $cliente)
             <tr>
-                <td> {{$cliente->id}} </td>
+                <td> <a href="{{ route('cliente.show', $cliente) }}"> {{$cliente->id}}</a> </td>
                 <td> {{$cliente->nombre}} </td>
                 <td> {{$cliente->apellido1}} </td>
                 <td> {{$cliente->apellido2}} </td>
                 <td> {{$cliente->telefono}} </td>
+                <td> {{$cliente->correo}} </td>
+                <td>
+                    <a href="{{ route('cliente.edit', $cliente) }}">Editar</a>
+                    <a href=" {{route('cliente.destroy', $cliente)}} ">Eliminar</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
