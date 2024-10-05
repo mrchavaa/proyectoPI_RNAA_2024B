@@ -273,7 +273,7 @@
                                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Apellido Materno</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Teléfono</th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Correo</th>
-                                  <th class="text-secondary opacity-7">Acciones</th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acciones</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -302,13 +302,16 @@
                                       <span class="text-secondary text-xs font-weight-bold">{{ $cliente->correo }}</span>
                                   </td>
                                   <td class="align-middle">
-                                      <a href="{{ route('cliente.edit', $cliente) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                      <a class="btn btn-sm bg-gradient-info" href="{{ route('cliente.edit', $cliente) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                           Editar
                                       </a>
-                                      |
-                                      <a href="{{ route('cliente.destroy', $cliente) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
-                                          Eliminar
-                                      </a>
+                                      
+                                      <form action="{{ route('cliente.destroy', $cliente) }}" method="post" style="display: inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm bg-gradient-danger" type="submit" class="text-secondary font-weight-bold text-xs" onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?');">Eliminar
+                                        </button>
+                                      </form>
                                   </td>
                               </tr>
                               @endforeach
@@ -328,9 +331,9 @@
                 © <script>
                   document.write(new Date().getFullYear())
                 </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
+                hecho con el <i class="fa fa-heart"></i> by
+                <a href="" class="font-weight-bold" target="_blank">Chava</a>
+                para Programación para Internet
               </div>
             </div>
             <div class="col-lg-6">

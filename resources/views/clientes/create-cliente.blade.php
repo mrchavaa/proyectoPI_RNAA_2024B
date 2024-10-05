@@ -87,7 +87,7 @@
 
   
 <li class="nav-item">
-  <a class="nav-link text-white " href="{{ route('cliente.index') }}">
+  <a class="nav-link text-white" href="{{ route('cliente.index') }}">
     
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">table_view</i>
@@ -99,7 +99,7 @@
 
   
 <li class="nav-item">
-  <a class="nav-link text-white " href="{{ route('cliente.create') }}">
+  <a class="nav-link text-white active bg-gradient-primary" href="{{ route('cliente.create') }}">
     
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">receipt_long</i>
@@ -359,7 +359,7 @@
 </div>
 </div>
 </div>
-      <div class="col-lg-5 col-sm-5 mt-sm-0 mt-4">
+      <div class="col-lg-7 col-sm-5 mt-sm-0 mt-4">
         <div class="card  mb-2">
 
             <div class="card-header p-3 pt-2 bg-transparent">
@@ -412,6 +412,7 @@
                   </div>
               
                   <!-- Botón Enviar -->
+                  <br>
                   <button class="btn bg-gradient-success" type="submit" id="btnEnviarFormulario">Enviar</button>
                 </form>
               </div>

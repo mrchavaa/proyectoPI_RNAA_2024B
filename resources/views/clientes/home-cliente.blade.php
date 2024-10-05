@@ -75,7 +75,7 @@
           
   
 <li class="nav-item">
-  <a class="nav-link text-white " href="{{ route('home.cliente') }}">
+  <a class="nav-link text-white active bg-gradient-primary" href="{{ route('home.cliente') }}">
     
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">dashboard</i>
@@ -365,7 +365,7 @@
 
   <hr class="dark horizontal my-0">
   <div class="card-footer p-3">
-    <a href="cliente/create"><p class="mb-0"><span class="text-success text-sm font-weight-bolder">Click aquí </span></p>
+    <a href="{{ route('cliente.create') }}"><p class="mb-0"><span class="text-success text-sm font-weight-bolder">Click aquí </span></p>
     </a>
   </div>
 </div>
@@ -386,7 +386,7 @@
 
   <hr class="horizontal my-0 dark">
   <div class="card-footer p-3">
-    <a href="cliente"><p class="mb-0"><span class="text-success text-sm font-weight-bolder">Click aquí </span></p>
+    <a href="{{ route('cliente.index') }}"><p class="mb-0"><span class="text-success text-sm font-weight-bolder">Click aquí </span></p>
     </a>
   </div>
 </div>
