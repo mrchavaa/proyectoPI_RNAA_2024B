@@ -75,7 +75,7 @@
           
   
 <li class="nav-item">
-  <a class="nav-link text-white " href="/home">
+  <a class="nav-link text-white " href="{{ route('home.cliente') }}">
     
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">dashboard</i>
@@ -87,7 +87,7 @@
 
   
 <li class="nav-item">
-  <a class="nav-link text-white " href="./pages/tables.html">
+  <a class="nav-link text-white " href="{{ route('cliente.index') }}">
     
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">table_view</i>
@@ -99,7 +99,7 @@
 
   
 <li class="nav-item">
-  <a class="nav-link text-white " href="./pages/billing.html">
+  <a class="nav-link text-white " href="{{ route('cliente.create') }}">
     
       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
         <i class="material-icons opacity-10">receipt_long</i>

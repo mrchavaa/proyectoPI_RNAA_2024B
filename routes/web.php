@@ -6,12 +6,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('cliente', ClienteController::class);
+
 
 Route::get('/home-cliente', function () {
-    return view('clientes/home-cliente');
-});
-
-Route::resource('cliente', ClienteController::class);
+    return view('clientes.home-cliente');
+})->name('home.cliente');
 
 
 Route::middleware([
