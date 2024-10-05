@@ -7,8 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('clientes.home');
+Route::get('/home-cliente', function () {
+    return view('clientes/home-cliente');
 });
 
 Route::resource('cliente', ClienteController::class);
